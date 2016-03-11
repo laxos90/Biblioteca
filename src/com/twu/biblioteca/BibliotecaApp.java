@@ -11,6 +11,8 @@ public class BibliotecaApp {
 
         if (option == 1) {
             printBooks(library);
+        } else {
+            System.out.println("Invalid Option! Please select a valid option");
         }
     }
 
