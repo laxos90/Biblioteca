@@ -15,27 +15,33 @@ public class BibliotecaApp {
             printMenuOptions();
             option = getUserOption();
 
-            if (option == 1) {
-                printBooks(library);
-            } else if (option == 2) {
-                askBookTitle();
-                selectedBook = getBookTitleFromUser();
-                boolean isSuccessfulCheckout = false;
 
-                for (Book book: library.getBooks()) {
-                    if (selectedBook.equals(book.getTitle())) {
-                        library.getBooks().remove(book);
-                        isSuccessfulCheckout = true;
-                        notifyUserSuccessfulCheckout();
+            switch (option) {
+                case 0: break;
+                case 1:
+                    printBooks(library);
+                    break;
+                case 2:
+                    askBookTitle();
+                    selectedBook = getBookTitleFromUser();
+                    boolean isSuccessfulCheckout = false;
+
+                    for (Book book: library.getBooks()) {
+                        if (selectedBook.equals(book.getTitle())) {
+                            library.getBooks().remove(book);
+                            isSuccessfulCheckout = true;
+                            notifyUserSuccessfulCheckout();
+                        }
                     }
-                }
 
-                if (!isSuccessfulCheckout) {
-                    notifyUnsuccessfulCheckout();
-                }
-
-            } else if (option != 0) {
-                printInvalidOptionMessage();
+                    if (!isSuccessfulCheckout) {
+                        notifyUnsuccessfulCheckout();
+                    }
+                    break;
+                case 3: break;
+                default:
+                    printInvalidOptionMessage();
+                    break;
             }
         } while (option != 0);
     }
