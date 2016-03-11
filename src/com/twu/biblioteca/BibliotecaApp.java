@@ -9,6 +9,7 @@ public class BibliotecaApp {
         printWelcomeMessage();
 
         int option;
+        String selectedBook;
 
         do {
             printMenuOptions();
@@ -16,10 +17,24 @@ public class BibliotecaApp {
 
             if (option == 1) {
                 printBooks(library);
+            } else if (option == 2) {
+                askBookTitle();
+                selectedBook = getBookTitleFromUser();
+
+                for (Book book: library.getBooks()) {
+                    if (selectedBook.equals(book.getTitle())) {
+                        library.getBooks().remove(book);
+                    }
+                }
+
             } else if (option != 0) {
                 printInvalidOptionMessage();
             }
         } while (option != 0);
+    }
+
+    private static void askBookTitle() {
+        System.out.println("Type the title of the book you want to checkout");
     }
 
     private static void printInvalidOptionMessage() {
@@ -31,9 +46,15 @@ public class BibliotecaApp {
         return reader.nextInt();
     }
 
+    private static String getBookTitleFromUser() {
+        Scanner reader = new Scanner(System.in);
+        return reader.nextLine();
+    }
+
     private static void printMenuOptions() {
         System.out.println("Choose an option");
         System.out.println("1 - List available books");
+        System.out.println("2 - Checkout a book");
         System.out.println("Press 0 to quit!");
     }
 
