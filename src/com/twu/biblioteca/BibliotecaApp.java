@@ -23,6 +23,7 @@ public class BibliotecaApp {
 
                 for (Book book: library.getBooks()) {
                     if (selectedBook.equals(book.getTitle())) {
+                        notifyUserSuccessfulCheckout();
                         library.getBooks().remove(book);
                     }
                 }
@@ -31,6 +32,10 @@ public class BibliotecaApp {
                 printInvalidOptionMessage();
             }
         } while (option != 0);
+    }
+
+    private static void notifyUserSuccessfulCheckout() {
+        System.out.println("Thank you! Enjoy the book");
     }
 
     private static void askBookTitle() {
