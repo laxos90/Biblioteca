@@ -41,12 +41,13 @@ public class BibliotecaApp {
                     }
                     break;
                 case 3:
-                    System.out.println("Enter the title of the book you want to return.");
+                    printTitleOfReturnedBook();
                     String bookTitleFromUser = getBookTitleFromUser();
 
                     for (Book book: library.getBooks()) {
                         if (bookTitleFromUser.equals(book.getTitle())) {
                             book.setAvailable(true);
+                            notifyUserBookWasReturned();
                         }
                     }
                     break;
@@ -55,6 +56,14 @@ public class BibliotecaApp {
                     break;
             }
         } while (option != 0);
+    }
+
+    private static void notifyUserBookWasReturned() {
+        System.out.println("Thank you for returning the book.");
+    }
+
+    private static void printTitleOfReturnedBook() {
+        System.out.println("Enter the title of the book you want to return.");
     }
 
     private static void notifyUnsuccessfulCheckout() {
