@@ -18,8 +18,8 @@ public class BibliotecaApp {
             if (option == 1) {
                 printBooks(library);
             } else if (option == 2) {
-                System.out.println("Type the title of the book you want to checkout");
-                selectedBook = getUserSecondOption();
+                askBookTitle();
+                selectedBook = getBookTitleFromUser();
 
                 for (Book book: library.getBooks()) {
                     if (selectedBook.equals(book.getTitle())) {
@@ -33,6 +33,10 @@ public class BibliotecaApp {
         } while (option != 0);
     }
 
+    private static void askBookTitle() {
+        System.out.println("Type the title of the book you want to checkout");
+    }
+
     private static void printInvalidOptionMessage() {
         System.out.println("Invalid Option! Please select a valid option");
     }
@@ -42,7 +46,7 @@ public class BibliotecaApp {
         return reader.nextInt();
     }
 
-    private static String getUserSecondOption() {
+    private static String getBookTitleFromUser() {
         Scanner reader = new Scanner(System.in);
         return reader.nextLine();
     }
