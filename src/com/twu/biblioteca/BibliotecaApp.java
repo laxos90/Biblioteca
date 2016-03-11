@@ -7,15 +7,19 @@ public class BibliotecaApp {
     public static void main(String[] args) {
         Library library = new Library();
         printWelcomeMessage();
-        printMenuOptions();
 
-        int option = getUserOption();
+        int option;
 
-        if (option == 1) {
-            printBooks(library);
-        } else {
-            printInvalidOptionMessage();
-        }
+        do {
+            printMenuOptions();
+            option = getUserOption();
+
+            if (option == 1) {
+                printBooks(library);
+            } else if (option != 0) {
+                printInvalidOptionMessage();
+            }
+        } while (option != 0);
     }
 
     private static void printInvalidOptionMessage() {
@@ -30,6 +34,7 @@ public class BibliotecaApp {
     private static void printMenuOptions() {
         System.out.println("Choose an option");
         System.out.println("1 - List available books");
+        System.out.println("Press 0 to quit!");
     }
 
     private static void printWelcomeMessage() {
