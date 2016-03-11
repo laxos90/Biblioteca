@@ -14,6 +14,20 @@ public class Book {
         this.publishedYear = publishedYear;
     }
 
+    public void setPublishedYear(int publishedYear) {
+        this.publishedYear = publishedYear;
+    }
+
+    private boolean isAvailable;
+
+    public void setAvailable(boolean available) {
+        isAvailable = available;
+    }
+
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+
     public String getTitle() {
         return title;
     }
