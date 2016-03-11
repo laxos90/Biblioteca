@@ -1,18 +1,16 @@
 package com.twu.biblioteca;
 
-import java.util.ArrayList;
-
 public class BibliotecaApp {
 
     public static void main(String[] args) {
         System.out.println("Welcome to The Bangalore Public Library");
-        ArrayList<Book> books = new ArrayList<Book>() {{
-            add(new Book("A Thousand Splendid Suns", "Khaled Hosseini", 2006));
-            add(new Book("Hunger Games", "Susane Collins", 2004));
-            add(new Book("Two Towers", "JR Tolkien", 1994));
-        }};
+        Library library = new Library();
 
-        for (Book book: books) {
+        printBooks(library);
+    }
+
+    private static void printBooks(Library library) {
+        for (Book book: library.getBooks()) {
             System.out.println(book);
         }
     }
