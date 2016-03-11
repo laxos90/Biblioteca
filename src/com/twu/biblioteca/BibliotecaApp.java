@@ -7,13 +7,16 @@ public class BibliotecaApp {
     public static void main(String[] args) {
         Library library = new Library();
         printWelcomeMessageAndMenuOptions();
-
-        Scanner reader = new Scanner(System.in);
-        int option = reader.nextInt();
+        int option = getUserOption();
 
         if (option == 1) {
             printBooks(library);
         }
+    }
+
+    private static int getUserOption() {
+        Scanner reader = new Scanner(System.in);
+        return reader.nextInt();
     }
 
     private static void printWelcomeMessageAndMenuOptions() {
