@@ -29,7 +29,7 @@ public class BibliotecaApp {
                     boolean isSuccessfulCheckout = false;
 
                     for (Book book: library.getBooks()) {
-                        if (selectedBook.equals(book.getTitle())) {
+                        if (book.isAvailable() && selectedBook.equals(book.getTitle())) {
                             book.setAvailable(false);
                             isSuccessfulCheckout = true;
                             notifyUserSuccessfulCheckout();
