@@ -70,6 +70,7 @@ public class BibliotecaApp {
         System.out.println("Choose an option");
         System.out.println("1 - List available books");
         System.out.println("2 - Checkout a book");
+        System.out.println("3 - Return a book");
         System.out.println("Press 0 to quit!");
     }
 
