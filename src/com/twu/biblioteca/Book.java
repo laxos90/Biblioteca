@@ -7,11 +7,25 @@ public class Book {
     private String title;
     private String author;
     private int publishedYear;
+    private boolean isAvailable;
 
     public Book(String title, String author, int publishedYear) {
         this.title = title;
         this.author = author;
         this.publishedYear = publishedYear;
+        this.isAvailable = true;
+    }
+
+    public void setPublishedYear(int publishedYear) {
+        this.publishedYear = publishedYear;
+    }
+
+    public void setAvailable(boolean available) {
+        isAvailable = available;
+    }
+
+    public boolean isAvailable() {
+        return isAvailable;
     }
 
     public String getTitle() {

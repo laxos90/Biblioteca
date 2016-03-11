@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import sun.font.TrueTypeFont;
+
 import java.util.Scanner;
 
 public class BibliotecaApp {
@@ -15,27 +17,42 @@ public class BibliotecaApp {
             printMenuOptions();
             option = getUserOption();
 
-            if (option == 1) {
-                printBooks(library);
-            } else if (option == 2) {
-                askBookTitle();
-                selectedBook = getBookTitleFromUser();
-                boolean isSuccessfulCheckout = false;
 
-                for (Book book: library.getBooks()) {
-                    if (selectedBook.equals(book.getTitle())) {
-                        library.getBooks().remove(book);
-                        isSuccessfulCheckout = true;
-                        notifyUserSuccessfulCheckout();
+            switch (option) {
+                case 0: break;
+                case 1:
+                    printBooks(library);
+                    break;
+                case 2:
+                    askBookTitle();
+                    selectedBook = getBookTitleFromUser();
+                    boolean isSuccessfulCheckout = false;
+
+                    for (Book book: library.getBooks()) {
+                        if (selectedBook.equals(book.getTitle())) {
+                            book.setAvailable(false);
+                            isSuccessfulCheckout = true;
+                            notifyUserSuccessfulCheckout();
+                        }
                     }
-                }
 
-                if (!isSuccessfulCheckout) {
-                    notifyUnsuccessfulCheckout();
-                }
+                    if (!isSuccessfulCheckout) {
+                        notifyUnsuccessfulCheckout();
+                    }
+                    break;
+                case 3:
+                    System.out.println("Enter the title of the book you want to return.");
+                    String bookTitleFromUser = getBookTitleFromUser();
 
-            } else if (option != 0) {
-                printInvalidOptionMessage();
+                    for (Book book: library.getBooks()) {
+                        if (bookTitleFromUser.equals(book.getTitle())) {
+                            book.setAvailable(true);
+                        }
+                    }
+                    break;
+                default:
+                    printInvalidOptionMessage();
+                    break;
             }
         } while (option != 0);
     }
@@ -70,6 +87,7 @@ public class BibliotecaApp {
         System.out.println("Choose an option");
         System.out.println("1 - List available books");
         System.out.println("2 - Checkout a book");
+        System.out.println("3 - Return a book");
         System.out.println("Press 0 to quit!");
     }
 
@@ -79,7 +97,9 @@ public class BibliotecaApp {
 
     private static void printBooks(Library library) {
         for (Book book: library.getBooks()) {
-            System.out.println(book);
+            if (book.isAvailable()) {
+                System.out.println(book);
+            }
         }
     }
 }
