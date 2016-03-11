@@ -43,12 +43,18 @@ public class BibliotecaApp {
                 case 3:
                     printTitleOfReturnedBook();
                     String bookTitleFromUser = getBookTitleFromUser();
+                    boolean isSuccessfulReturn = false;
+
 
                     for (Book book: library.getBooks()) {
-                        if (bookTitleFromUser.equals(book.getTitle())) {
+                        if (!book.isAvailable() && bookTitleFromUser.equals(book.getTitle())) {
                             book.setAvailable(true);
+                            isSuccessfulReturn = true;
                             notifyUserBookWasReturned();
                         }
+                    }
+                    if (!isSuccessfulReturn) {
+                        notifyUserReturnWasUnsuccessful();
                     }
                     break;
                 default:
@@ -56,6 +62,10 @@ public class BibliotecaApp {
                     break;
             }
         } while (option != 0);
+    }
+
+    private static void notifyUserReturnWasUnsuccessful() {
+        System.out.println("That is not a valid book to return.");
     }
 
     private static void notifyUserBookWasReturned() {
