@@ -13,6 +13,7 @@ public class Book {
         this.title = title;
         this.author = author;
         this.publishedYear = publishedYear;
+        this.isAvailable = true;
     }
 
     public void setPublishedYear(int publishedYear) {
