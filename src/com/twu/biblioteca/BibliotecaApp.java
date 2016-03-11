@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import sun.font.TrueTypeFont;
+
 import java.util.Scanner;
 
 public class BibliotecaApp {
@@ -28,7 +30,7 @@ public class BibliotecaApp {
 
                     for (Book book: library.getBooks()) {
                         if (selectedBook.equals(book.getTitle())) {
-                            library.getBooks().remove(book);
+                            book.setAvailable(false);
                             isSuccessfulCheckout = true;
                             notifyUserSuccessfulCheckout();
                         }
@@ -38,7 +40,16 @@ public class BibliotecaApp {
                         notifyUnsuccessfulCheckout();
                     }
                     break;
-                case 3: break;
+                case 3:
+                    System.out.println("Enter the title of the book you want to return.");
+                    String bookTitleFromUser = getBookTitleFromUser();
+
+                    for (Book book: library.getBooks()) {
+                        if (bookTitleFromUser.equals(book.getTitle())) {
+                            book.setAvailable(true);
+                        }
+                    }
+                    break;
                 default:
                     printInvalidOptionMessage();
                     break;
@@ -86,7 +97,9 @@ public class BibliotecaApp {
 
     private static void printBooks(Library library) {
         for (Book book: library.getBooks()) {
-            System.out.println(book);
+            if (book.isAvailable()) {
+                System.out.println(book);
+            }
         }
     }
 }
