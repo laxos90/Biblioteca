@@ -20,18 +20,28 @@ public class BibliotecaApp {
             } else if (option == 2) {
                 askBookTitle();
                 selectedBook = getBookTitleFromUser();
+                boolean isSuccessfulCheckout = false;
 
                 for (Book book: library.getBooks()) {
                     if (selectedBook.equals(book.getTitle())) {
-                        notifyUserSuccessfulCheckout();
                         library.getBooks().remove(book);
+                        isSuccessfulCheckout = true;
+                        notifyUserSuccessfulCheckout();
                     }
+                }
+
+                if (!isSuccessfulCheckout) {
+                    notifyUnsuccessfulCheckout();
                 }
 
             } else if (option != 0) {
                 printInvalidOptionMessage();
             }
         } while (option != 0);
+    }
+
+    private static void notifyUnsuccessfulCheckout() {
+        System.out.println("That book is not available.");
     }
 
     private static void notifyUserSuccessfulCheckout() {
