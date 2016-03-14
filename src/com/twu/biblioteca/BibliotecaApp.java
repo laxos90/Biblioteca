@@ -6,15 +6,14 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         Library library = new Library();
-        Printer.printWelcomeMessage();
-
         int option;
         String selectedBook;
 
+        Printer.printWelcomeMessage();
+
         do {
             Printer.printMenuOptions();
-            option = getUserOption();
-
+            option = Reader.getUserOption();
 
             switch (option) {
                 case 0:
@@ -24,7 +23,7 @@ public class BibliotecaApp {
                     break;
                 case 2:
                     Printer.askBookTitle();
-                    selectedBook = getBookTitleFromUser();
+                    selectedBook = Reader.getBookTitleFromUser();
                     boolean isSuccessfulCheckout = false;
 
                     for (Book book : library.getBooks()) {
@@ -41,9 +40,8 @@ public class BibliotecaApp {
                     break;
                 case 3:
                     Printer.printTitleOfReturnedBook();
-                    String bookTitleFromUser = getBookTitleFromUser();
+                    String bookTitleFromUser = Reader.getBookTitleFromUser();
                     boolean isSuccessfulReturn = false;
-
 
                     for (Book book : library.getBooks()) {
                         if (!book.isAvailable() && bookTitleFromUser.equals(book.getTitle())) {
@@ -52,6 +50,7 @@ public class BibliotecaApp {
                             Printer.notifyUserBookWasReturned();
                         }
                     }
+
                     if (!isSuccessfulReturn) {
                         Printer.notifyUserReturnWasUnsuccessful();
                     }
@@ -61,16 +60,6 @@ public class BibliotecaApp {
                     break;
             }
         } while (option != 0);
-    }
-
-    private static int getUserOption() {
-        Scanner reader = new Scanner(System.in);
-        return reader.nextInt();
-    }
-
-    private static String getBookTitleFromUser() {
-        Scanner reader = new Scanner(System.in);
-        return reader.nextLine();
     }
 
 }
