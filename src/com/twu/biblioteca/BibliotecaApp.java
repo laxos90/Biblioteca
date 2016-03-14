@@ -115,10 +115,12 @@ public class BibliotecaApp {
     }
 
     private static void printBooks(Library library) {
+        System.out.println("Title\t\t\t\t\t\tAuthor\t\t\t\tPublished Year");
         for (Book book: library.getBooks()) {
             if (book.isAvailable()) {
                 System.out.println(book);
             }
         }
+        System.out.println();
     }
 }
