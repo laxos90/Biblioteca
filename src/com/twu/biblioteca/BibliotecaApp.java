@@ -38,7 +38,7 @@ public class BibliotecaApp {
                         if (book.isAvailable() && selectedBook.equals(book.getTitle())) {
                             book.setAvailable(false);
                             isSuccessfulCheckout = true;
-                            Printer.notifyUserSuccessfulCheckout("book");
+                            Printer.notifySuccessfulCheckout("book");
                         }
                     }
 
@@ -75,7 +75,7 @@ public class BibliotecaApp {
                         if (movie.isAvailable() && selectedMovie.equals(movie.getName())) {
                             movie.setAvailable(false);
                             isSuccessfulCheckout = true;
-                            Printer.notifyUserSuccessfulCheckout("movie");
+                            Printer.notifySuccessfulCheckout("movie");
                         }
                     }
 
