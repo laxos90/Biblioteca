@@ -7,6 +7,7 @@ import java.util.ArrayList;
  */
 public class Library {
     private ArrayList<Book> books;
+    private ArrayList<Movie> movies;
 
     public Library() {
         books = new ArrayList<Book>() {{
@@ -14,9 +15,18 @@ public class Library {
             add(new Book("Hunger Games", "Susane Collins", 2004));
             add(new Book("Two Towers", "JR Tolkien", 1994));
         }};
+        movies = new ArrayList<Movie>() {{
+            add(new Movie("Pulp Fiction", 1979, "Tarantino", "8.9"));
+            add(new Movie("The Godfather", 1975, "Coppola", "9.2"));
+            add(new Movie("The Departed", 2006, "Scorsese", "8.5"));
+        }};
     }
 
     public ArrayList<Book> getBooks() {
         return books;
+    }
+
+    public ArrayList<Movie> getMovies() {
+        return movies;
     }
 }

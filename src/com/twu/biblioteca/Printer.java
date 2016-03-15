@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import java.util.ArrayList;
+
 /**
  * Created by user on 3/14/16.
  */
@@ -41,14 +43,24 @@ public class Printer {
         System.out.println("1 - List available books");
         System.out.println("2 - Checkout a book");
         System.out.println("3 - Return a book");
+        System.out.println("4 - List available movies");
         System.out.println("Press 0 to quit!");
     }
 
     public static void printBooks(Library library) {
         System.out.println("Title\t\t\t\t\t\tAuthor\t\t\t\tPublished Year");
-        for (Book book: library.getBooks()) {
-            if (book.isAvailable()) {
-                System.out.println(book);
+        printLibraryItems(library.getBooks());
+    }
+
+    public static void printMovies(Library library) {
+        System.out.println("Name\t\t\t\t\t\tYear\t\t\tDirector\t\t\t\tRating");
+        printLibraryItems(library.getMovies());
+    }
+
+    private static void printLibraryItems(ArrayList<? extends LibraryItem> libraryItems) {
+        for (LibraryItem libraryItem: libraryItems) {
+            if (libraryItem.isAvailable()) {
+                System.out.println(libraryItem);
             }
         }
         System.out.println();
