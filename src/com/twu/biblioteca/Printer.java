@@ -10,24 +10,8 @@ public class Printer {
         System.out.println("Welcome to The Bangalore Public Library");
     }
 
-    public static void notifyUserReturnWasUnsuccessful() {
-        System.out.println("That is not a valid book to return.");
-    }
-
-    public static void notifyUserBookWasReturned() {
-        System.out.println("Thank you for returning the book.");
-    }
-
     public static void printTitleOfReturnedBook() {
         System.out.println("Enter the title of the book you want to return.");
-    }
-
-    public static void notifyUnsuccessfulCheckout() {
-        System.out.println("That book is not available.");
-    }
-
-    public static void notifyUserSuccessfulCheckout() {
-        System.out.println("Thank you! Enjoy the book");
     }
 
     public static void askBookTitle() {
@@ -44,6 +28,8 @@ public class Printer {
         System.out.println("2 - Checkout a book");
         System.out.println("3 - Return a book");
         System.out.println("4 - List available movies");
+        System.out.println("5 - Checkout a movie");
+        System.out.println("6 - Return a movie");
         System.out.println("Press 0 to quit!");
     }
 
@@ -65,4 +51,29 @@ public class Printer {
         }
         System.out.println();
     }
+
+    public static void askMovieName() {
+        System.out.println("Type the name of the movie you want to checkout");
+    }
+
+    public static void printNameOfReturnedMovie() {
+        System.out.println("Enter the name of the movie you want to return.");
+    }
+
+    public static void notifyUnsuccessfulCheckout(String element) {
+        System.out.println("That " + element + " is not available.");
+    }
+
+    public static void notifyUserSuccessfulCheckout(String element) {
+        System.out.println("Thank you! Enjoy the " + element);
+    }
+
+    public static void notifyUserReturnWasUnsuccessful(String element) {
+        System.out.println("That is not a valid " + element + " to return.");
+    }
+
+    public static void notifyUserReturnWasSuccessful(String element) {
+        System.out.println("Thank you for returning the " + element + ".");
+    }
+
 }
