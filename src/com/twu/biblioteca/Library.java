@@ -40,4 +40,15 @@ public class Library {
         return isSuccessfulCheckout;
     }
 
+    public boolean returnBook(String bookTitle) {
+        boolean isSuccessfulReturn = false;
+        for (Book book : books) {
+            if (!book.isAvailable() && bookTitle.equals(book.getTitle())) {
+                book.setAvailable(true);
+                isSuccessfulReturn = true;
+            }
+        }
+        return isSuccessfulReturn;
+    }
+
 }

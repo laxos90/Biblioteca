@@ -42,8 +42,8 @@ public class BibliotecaApp {
                     break;
                 case 3:
                     Printer.printTitleOfReturnedBook();
-                    String bookTitleFromUser = Reader.getBookTitleFromUser();
-                    isSuccessfulReturn = returnBook(library, bookTitleFromUser);
+                    bookTitle = Reader.getBookTitleFromUser();
+                    isSuccessfulReturn = library.returnBook(bookTitle);
 
                     if (isSuccessfulReturn) {
                         Printer.notifyUserReturnWasSuccessful("book");
@@ -93,17 +93,6 @@ public class BibliotecaApp {
                     break;
             }
         } while (option != 0);
-    }
-
-    private static boolean returnBook(Library library, String bookTitleFromUser) {
-        boolean isSuccessfulReturn = false;
-        for (Book book : library.getBooks()) {
-            if (!book.isAvailable() && bookTitleFromUser.equals(book.getTitle())) {
-                book.setAvailable(true);
-                isSuccessfulReturn = true;
-            }
-        }
-        return isSuccessfulReturn;
     }
     
 }
