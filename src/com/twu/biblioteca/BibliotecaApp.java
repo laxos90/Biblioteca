@@ -38,12 +38,12 @@ public class BibliotecaApp {
                         if (book.isAvailable() && selectedBook.equals(book.getTitle())) {
                             book.setAvailable(false);
                             isSuccessfulCheckout = true;
-                            Printer.notifyUserSuccessfulBookCheckout();
+                            Printer.notifyUserSuccessfulCheckout("book");
                         }
                     }
 
                     if (!isSuccessfulCheckout) {
-                        Printer.notifyUnsuccessfulBookCheckout();
+                        Printer.notifyUnsuccessfulCheckout("book");
                     }
                     break;
                 case 3:
@@ -55,12 +55,12 @@ public class BibliotecaApp {
                         if (!book.isAvailable() && bookTitleFromUser.equals(book.getTitle())) {
                             book.setAvailable(true);
                             isSuccessfulReturn = true;
-                            Printer.notifyUserBookWasReturned();
+                            Printer.notifyUserReturnWasSuccessful("book");
                         }
                     }
 
                     if (!isSuccessfulReturn) {
-                        Printer.notifyUserReturnBookWasUnsuccessful();
+                        Printer.notifyUserReturnWasUnsuccessful("book");
                     }
                     break;
                 case 4:
@@ -75,12 +75,12 @@ public class BibliotecaApp {
                         if (movie.isAvailable() && selectedMovie.equals(movie.getName())) {
                             movie.setAvailable(false);
                             isSuccessfulCheckout = true;
-                            Printer.notifyUserSuccessfulMovieCheckout();
+                            Printer.notifyUserSuccessfulCheckout("movie");
                         }
                     }
 
                     if (!isSuccessfulCheckout) {
-                        Printer.notifyUnsuccessfulMovieCheckout();
+                        Printer.notifyUnsuccessfulCheckout("movie");
                     }
                     break;
                 case 6:
@@ -92,12 +92,12 @@ public class BibliotecaApp {
                         if (!movie.isAvailable() && movieNameFromUser.equals(movie.getName())) {
                             movie.setAvailable(true);
                             isSuccessfulReturn = true;
-                            Printer.notifyUserMovieWasReturned();
+                            Printer.notifyUserReturnWasSuccessful("movie");
                         }
                     }
 
                     if (!isSuccessfulReturn) {
-                        Printer.notifyUserReturnMovieWasUnsuccessful();
+                        Printer.notifyUserReturnWasUnsuccessful("movie");
                     }
                     break;
                 default:

@@ -10,24 +10,8 @@ public class Printer {
         System.out.println("Welcome to The Bangalore Public Library");
     }
 
-    public static void notifyUserReturnBookWasUnsuccessful() {
-        System.out.println("That is not a valid book to return.");
-    }
-
-    public static void notifyUserBookWasReturned() {
-        System.out.println("Thank you for returning the book.");
-    }
-
     public static void printTitleOfReturnedBook() {
         System.out.println("Enter the title of the book you want to return.");
-    }
-
-    public static void notifyUnsuccessfulBookCheckout() {
-        System.out.println("That book is not available.");
-    }
-
-    public static void notifyUserSuccessfulBookCheckout() {
-        System.out.println("Thank you! Enjoy the book");
     }
 
     public static void askBookTitle() {
@@ -72,23 +56,24 @@ public class Printer {
         System.out.println("Type the name of the movie you want to checkout");
     }
 
-    public static void notifyUserSuccessfulMovieCheckout() {
-        System.out.println("Thank you! Enjoy the movie");
-    }
-
-    public static void notifyUnsuccessfulMovieCheckout() {
-        System.out.println("That movie is not available.");
-    }
-
     public static void printNameOfReturnedMovie() {
         System.out.println("Enter the name of the movie you want to return.");
     }
 
-    public static void notifyUserMovieWasReturned() {
-        System.out.println("Thank you for returning the movie.");
+    public static void notifyUnsuccessfulCheckout(String element) {
+        System.out.println("That " + element + " is not available.");
     }
 
-    public static void notifyUserReturnMovieWasUnsuccessful() {
-        System.out.println("That is not a valid movie to return.");
+    public static void notifyUserSuccessfulCheckout(String element) {
+        System.out.println("Thank you! Enjoy the " + element);
     }
+
+    public static void notifyUserReturnWasUnsuccessful(String element) {
+        System.out.println("That is not a valid " + element + " to return.");
+    }
+
+    public static void notifyUserReturnWasSuccessful(String element) {
+        System.out.println("Thank you for returning the " + element + ".");
+    }
+
 }
