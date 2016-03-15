@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class BibliotecaApp {
 
@@ -13,7 +13,12 @@ public class BibliotecaApp {
 
         do {
             Printer.printMenuOptions();
-            option = Reader.getUserOption();
+
+            try {
+                option = Reader.getUserOption();
+            } catch (InputMismatchException ex) {
+                option = 4;
+            }
 
             switch (option) {
                 case 0:
