@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class Printer {
     public static void printWelcomeMessage() {
-        System.out.println("Welcome to The Bangalore Public Library");
+        System.out.println("Welcome to the Bangalore Public Library");
     }
 
     public static void printMenuOptions() {
@@ -18,23 +18,23 @@ public class Printer {
         System.out.println("4 - List available movies");
         System.out.println("5 - Checkout a movie");
         System.out.println("6 - Return a movie");
-        System.out.println("Press 0 to quit!");
+        System.out.println("Enter 0 to quit!");
     }
 
     public static void printInvalidOptionMessage() {
-        System.out.println("Invalid Option! Please select a valid option");
+        System.out.println("Invalid Option! Please select a valid option:");
     }
 
     public static void askBookTitle() {
-        System.out.println("Type the title of the book you want to checkout");
+        System.out.println("Type the title of the book you want to checkout:");
     }
 
     public static void askMovieName() {
-        System.out.println("Type the name of the movie you want to checkout");
+        System.out.println("Type the name of the movie you want to checkout:");
     }
 
     public static void notifySuccessfulCheckout(String element) {
-        System.out.println("Thank you! Enjoy the " + element);
+        System.out.println("Thank you! Enjoy the " + element + ".");
     }
 
     public static void notifyUnsuccessfulCheckout(String element) {
@@ -50,11 +50,11 @@ public class Printer {
     }
 
     public static void printTitleOfReturnedBook() {
-        System.out.println("Enter the title of the book you want to return.");
+        System.out.println("Enter the title of the book you want to return:");
     }
 
     public static void printNameOfReturnedMovie() {
-        System.out.println("Enter the name of the movie you want to return.");
+        System.out.println("Enter the name of the movie you want to return:");
     }
 
     public static void printBooks(Library library) {

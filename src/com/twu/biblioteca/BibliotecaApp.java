@@ -7,7 +7,7 @@ public class BibliotecaApp {
     public static void main(String[] args) {
         Library library = new Library();
         int option;
-        String selectedBook;
+        String bookTitle;
         String selectedMovie;
         boolean isSuccessfulCheckout;
         boolean isSuccessfulReturn;
@@ -31,35 +31,23 @@ public class BibliotecaApp {
                     break;
                 case 2:
                     Printer.askBookTitle();
-                    selectedBook = Reader.getBookTitleFromUser();
-                    isSuccessfulCheckout = false;
+                    bookTitle = Reader.getBookTitleFromUser();
+                    isSuccessfulCheckout = library.checkoutBook(bookTitle);
 
-                    for (Book book : library.getBooks()) {
-                        if (book.isAvailable() && selectedBook.equals(book.getTitle())) {
-                            book.setAvailable(false);
-                            isSuccessfulCheckout = true;
-                            Printer.notifySuccessfulCheckout("book");
-                        }
-                    }
-
-                    if (!isSuccessfulCheckout) {
+                    if (isSuccessfulCheckout) {
+                        Printer.notifySuccessfulCheckout("book");
+                    } else {
                         Printer.notifyUnsuccessfulCheckout("book");
                     }
                     break;
                 case 3:
                     Printer.printTitleOfReturnedBook();
-                    String bookTitleFromUser = Reader.getBookTitleFromUser();
-                    isSuccessfulReturn = false;
+                    bookTitle = Reader.getBookTitleFromUser();
+                    isSuccessfulReturn = library.returnBook(bookTitle);
 
-                    for (Book book : library.getBooks()) {
-                        if (!book.isAvailable() && bookTitleFromUser.equals(book.getTitle())) {
-                            book.setAvailable(true);
-                            isSuccessfulReturn = true;
-                            Printer.notifyUserReturnWasSuccessful("book");
-                        }
-                    }
-
-                    if (!isSuccessfulReturn) {
+                    if (isSuccessfulReturn) {
+                        Printer.notifyUserReturnWasSuccessful("book");
+                    } else {
                         Printer.notifyUserReturnWasUnsuccessful("book");
                     }
                     break;
@@ -106,5 +94,5 @@ public class BibliotecaApp {
             }
         } while (option != 0);
     }
-
+    
 }
