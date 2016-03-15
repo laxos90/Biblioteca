@@ -3,29 +3,20 @@ package com.twu.biblioteca;
 /**
  * Created by m on 3/10/2016.
  */
-public class Book {
+public class Book extends LibraryItem {
     private String title;
     private String author;
     private int publishedYear;
-    private boolean isAvailable;
 
     public Book(String title, String author, int publishedYear) {
         this.title = title;
         this.author = author;
         this.publishedYear = publishedYear;
-        this.isAvailable = true;
+        super.setAvailable(true);
     }
 
     public void setPublishedYear(int publishedYear) {
         this.publishedYear = publishedYear;
-    }
-
-    public void setAvailable(boolean available) {
-        isAvailable = available;
-    }
-
-    public boolean isAvailable() {
-        return isAvailable;
     }
 
     public String getTitle() {

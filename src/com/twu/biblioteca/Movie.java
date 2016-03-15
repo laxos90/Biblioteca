@@ -3,19 +3,18 @@ package com.twu.biblioteca;
 /**
  * Created by user on 3/15/16.
  */
-public class Movie {
+public class Movie extends LibraryItem {
     private String name;
     private int year;
     private String director;
     private String rating;
-    private boolean isAvailable;
 
     public Movie(String name, int year, String director, String rating) {
         this.name = name;
         this.year = year;
         this.director = director;
         this.rating = rating;
-        this.isAvailable = true;
+        super.setAvailable(true);
     }
 
     public String getName() {
@@ -34,10 +33,6 @@ public class Movie {
         return rating;
     }
 
-    public boolean isAvailable() {
-        return isAvailable;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -52,10 +47,6 @@ public class Movie {
 
     public void setRating(String rating) {
         this.rating = rating;
-    }
-
-    public void setAvailable(boolean available) {
-        isAvailable = available;
     }
 
     @Override
