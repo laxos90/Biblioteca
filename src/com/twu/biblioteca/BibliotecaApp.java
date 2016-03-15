@@ -34,7 +34,9 @@ public class BibliotecaApp {
                     selectedBook = Reader.getBookTitleFromUser();
                     isSuccessfulCheckout = checkoutBook(library, selectedBook);
 
-                    if (!isSuccessfulCheckout) {
+                    if (isSuccessfulCheckout) {
+                        Printer.notifySuccessfulCheckout("book");
+                    } else {
                         Printer.notifyUnsuccessfulCheckout("book");
                     }
                     break;
@@ -43,7 +45,9 @@ public class BibliotecaApp {
                     String bookTitleFromUser = Reader.getBookTitleFromUser();
                     isSuccessfulReturn = returnBook(library, bookTitleFromUser);
 
-                    if (!isSuccessfulReturn) {
+                    if (isSuccessfulReturn) {
+                        Printer.notifyUserReturnWasSuccessful("book");
+                    } else {
                         Printer.notifyUserReturnWasUnsuccessful("book");
                     }
                     break;
@@ -98,7 +102,6 @@ public class BibliotecaApp {
             if (book.isAvailable() && selectedBook.equals(book.getTitle())) {
                 book.setAvailable(false);
                 isSuccessfulCheckout = true;
-                Printer.notifySuccessfulCheckout("book");
             }
         }
         return isSuccessfulCheckout;
@@ -110,7 +113,6 @@ public class BibliotecaApp {
             if (!book.isAvailable() && bookTitleFromUser.equals(book.getTitle())) {
                 book.setAvailable(true);
                 isSuccessfulReturn = true;
-                Printer.notifyUserReturnWasSuccessful("book");
             }
         }
         return isSuccessfulReturn;
