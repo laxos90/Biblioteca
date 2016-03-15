@@ -7,7 +7,7 @@ public class BibliotecaApp {
     public static void main(String[] args) {
         Library library = new Library();
         int option;
-        String selectedBook;
+        String bookTitle;
         String selectedMovie;
         boolean isSuccessfulCheckout;
         boolean isSuccessfulReturn;
@@ -31,8 +31,8 @@ public class BibliotecaApp {
                     break;
                 case 2:
                     Printer.askBookTitle();
-                    selectedBook = Reader.getBookTitleFromUser();
-                    isSuccessfulCheckout = checkoutBook(library, selectedBook);
+                    bookTitle = Reader.getBookTitleFromUser();
+                    isSuccessfulCheckout = library.checkoutBook(bookTitle);
 
                     if (isSuccessfulCheckout) {
                         Printer.notifySuccessfulCheckout("book");
@@ -93,18 +93,6 @@ public class BibliotecaApp {
                     break;
             }
         } while (option != 0);
-    }
-
-    private static boolean checkoutBook(Library library, String selectedBook) {
-        boolean isSuccessfulCheckout = false;
-
-        for (Book book : library.getBooks()) {
-            if (book.isAvailable() && selectedBook.equals(book.getTitle())) {
-                book.setAvailable(false);
-                isSuccessfulCheckout = true;
-            }
-        }
-        return isSuccessfulCheckout;
     }
 
     private static boolean returnBook(Library library, String bookTitleFromUser) {

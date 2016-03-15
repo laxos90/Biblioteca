@@ -22,11 +22,22 @@ public class Library {
         }};
     }
 
-    public ArrayList<Book> getBooks() {
-        return books;
-    }
+    public ArrayList<Book> getBooks() { return books; }
 
     public ArrayList<Movie> getMovies() {
         return movies;
     }
+
+    public boolean checkoutBook(String bookTitle) {
+        boolean isSuccessfulCheckout = false;
+
+        for (Book book : books) {
+            if (book.isAvailable() && bookTitle.equals(book.getTitle())) {
+                book.setAvailable(false);
+                isSuccessfulCheckout = true;
+            }
+        }
+        return isSuccessfulCheckout;
+    }
+
 }
