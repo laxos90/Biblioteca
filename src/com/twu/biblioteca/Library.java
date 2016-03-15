@@ -18,7 +18,7 @@ public class Library {
         movies = new ArrayList<Movie>() {{
             add(new Movie("Pulp Fiction", 1979, "Tarantino", "8.9"));
             add(new Movie("The Godfather", 1975, "Coppola", "9.2"));
-            add(new Movie("The departed", 2006, "Scorsese", "8.5"));
+            add(new Movie("The Departed", 2006, "Scorsese", "8.5"));
         }};
     }
 
