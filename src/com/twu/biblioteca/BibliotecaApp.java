@@ -10,6 +10,7 @@ public class BibliotecaApp {
         String selectedBook;
         String selectedMovie;
         boolean isSuccessfulCheckout;
+        boolean isSuccessfulReturn;
 
         Printer.printWelcomeMessage();
 
@@ -48,7 +49,7 @@ public class BibliotecaApp {
                 case 3:
                     Printer.printTitleOfReturnedBook();
                     String bookTitleFromUser = Reader.getBookTitleFromUser();
-                    boolean isSuccessfulReturn = false;
+                    isSuccessfulReturn = false;
 
                     for (Book book : library.getBooks()) {
                         if (!book.isAvailable() && bookTitleFromUser.equals(book.getTitle())) {
@@ -59,7 +60,7 @@ public class BibliotecaApp {
                     }
 
                     if (!isSuccessfulReturn) {
-                        Printer.notifyUserReturnWasUnsuccessful();
+                        Printer.notifyUserReturnBookWasUnsuccessful();
                     }
                     break;
                 case 4:
@@ -83,6 +84,21 @@ public class BibliotecaApp {
                     }
                     break;
                 case 6:
+                    Printer.printNameOfReturnedMovie();
+                    String movieNameFromUser = Reader.getMovieNameFromUser();
+                    isSuccessfulReturn = false;
+
+                    for (Movie movie : library.getMovies()) {
+                        if (!movie.isAvailable() && movieNameFromUser.equals(movie.getName())) {
+                            movie.setAvailable(true);
+                            isSuccessfulReturn = true;
+                            Printer.notifyUserMovieWasReturned();
+                        }
+                    }
+
+                    if (!isSuccessfulReturn) {
+                        Printer.notifyUserReturnMovieWasUnsuccessful();
+                    }
                     break;
                 default:
                     Printer.printInvalidOptionMessage();

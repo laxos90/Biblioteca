@@ -10,7 +10,7 @@ public class Printer {
         System.out.println("Welcome to The Bangalore Public Library");
     }
 
-    public static void notifyUserReturnWasUnsuccessful() {
+    public static void notifyUserReturnBookWasUnsuccessful() {
         System.out.println("That is not a valid book to return.");
     }
 
@@ -78,5 +78,17 @@ public class Printer {
 
     public static void notifyUnsuccessfulMovieCheckout() {
         System.out.println("That movie is not available.");
+    }
+
+    public static void printNameOfReturnedMovie() {
+        System.out.println("Enter the name of the movie you want to return.");
+    }
+
+    public static void notifyUserMovieWasReturned() {
+        System.out.println("Thank you for returning the movie.");
+    }
+
+    public static void notifyUserReturnMovieWasUnsuccessful() {
+        System.out.println("That is not a valid movie to return.");
     }
 }
