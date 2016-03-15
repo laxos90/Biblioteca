@@ -41,6 +41,7 @@ public class Printer {
         System.out.println("1 - List available books");
         System.out.println("2 - Checkout a book");
         System.out.println("3 - Return a book");
+        System.out.println("4 - List available movies");
         System.out.println("Press 0 to quit!");
     }
 
@@ -49,6 +50,16 @@ public class Printer {
         for (Book book: library.getBooks()) {
             if (book.isAvailable()) {
                 System.out.println(book);
+            }
+        }
+        System.out.println();
+    }
+
+    public static void printMovies(Library library) {
+        System.out.println("Name\t\t\t\t\t\tYear\t\t\tDirector\t\t\t\tRating");
+        for (Movie movie: library.getMovies()) {
+            if (movie.isAvailable()) {
+                System.out.println(movie);
             }
         }
         System.out.println();

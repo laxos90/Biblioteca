@@ -17,7 +17,7 @@ public class BibliotecaApp {
             try {
                 option = Reader.getUserOption();
             } catch (InputMismatchException ex) {
-                option = 4;
+                option = 5;
             }
 
             switch (option) {
@@ -59,6 +59,9 @@ public class BibliotecaApp {
                     if (!isSuccessfulReturn) {
                         Printer.notifyUserReturnWasUnsuccessful();
                     }
+                    break;
+                case 4:
+                    Printer.printMovies(library);
                     break;
                 default:
                     Printer.printInvalidOptionMessage();
