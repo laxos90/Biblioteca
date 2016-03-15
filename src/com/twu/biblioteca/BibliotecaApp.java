@@ -8,6 +8,8 @@ public class BibliotecaApp {
         Library library = new Library();
         int option;
         String selectedBook;
+        String selectedMovie;
+        boolean isSuccessfulCheckout;
 
         Printer.printWelcomeMessage();
 
@@ -17,7 +19,7 @@ public class BibliotecaApp {
             try {
                 option = Reader.getUserOption();
             } catch (InputMismatchException ex) {
-                option = 5;
+                option = 7;
             }
 
             switch (option) {
@@ -29,18 +31,18 @@ public class BibliotecaApp {
                 case 2:
                     Printer.askBookTitle();
                     selectedBook = Reader.getBookTitleFromUser();
-                    boolean isSuccessfulCheckout = false;
+                    isSuccessfulCheckout = false;
 
                     for (Book book : library.getBooks()) {
                         if (book.isAvailable() && selectedBook.equals(book.getTitle())) {
                             book.setAvailable(false);
                             isSuccessfulCheckout = true;
-                            Printer.notifyUserSuccessfulCheckout();
+                            Printer.notifyUserSuccessfulBookCheckout();
                         }
                     }
 
                     if (!isSuccessfulCheckout) {
-                        Printer.notifyUnsuccessfulCheckout();
+                        Printer.notifyUnsuccessfulBookCheckout();
                     }
                     break;
                 case 3:
@@ -62,6 +64,25 @@ public class BibliotecaApp {
                     break;
                 case 4:
                     Printer.printMovies(library);
+                    break;
+                case 5:
+                    Printer.askMovieName();
+                    selectedMovie = Reader.getMovieNameFromUser();
+                    isSuccessfulCheckout = false;
+
+                    for (Movie movie : library.getMovies()) {
+                        if (movie.isAvailable() && selectedMovie.equals(movie.getName())) {
+                            movie.setAvailable(false);
+                            isSuccessfulCheckout = true;
+                            Printer.notifyUserSuccessfulMovieCheckout();
+                        }
+                    }
+
+                    if (!isSuccessfulCheckout) {
+                        Printer.notifyUnsuccessfulMovieCheckout();
+                    }
+                    break;
+                case 6:
                     break;
                 default:
                     Printer.printInvalidOptionMessage();

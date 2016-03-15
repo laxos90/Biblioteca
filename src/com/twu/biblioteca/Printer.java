@@ -22,11 +22,11 @@ public class Printer {
         System.out.println("Enter the title of the book you want to return.");
     }
 
-    public static void notifyUnsuccessfulCheckout() {
+    public static void notifyUnsuccessfulBookCheckout() {
         System.out.println("That book is not available.");
     }
 
-    public static void notifyUserSuccessfulCheckout() {
+    public static void notifyUserSuccessfulBookCheckout() {
         System.out.println("Thank you! Enjoy the book");
     }
 
@@ -44,6 +44,8 @@ public class Printer {
         System.out.println("2 - Checkout a book");
         System.out.println("3 - Return a book");
         System.out.println("4 - List available movies");
+        System.out.println("5 - Checkout a movie");
+        System.out.println("6 - Return a movie");
         System.out.println("Press 0 to quit!");
     }
 
@@ -64,5 +66,17 @@ public class Printer {
             }
         }
         System.out.println();
+    }
+
+    public static void askMovieName() {
+        System.out.println("Type the name of the movie you want to checkout");
+    }
+
+    public static void notifyUserSuccessfulMovieCheckout() {
+        System.out.println("Thank you! Enjoy the movie");
+    }
+
+    public static void notifyUnsuccessfulMovieCheckout() {
+        System.out.println("That movie is not available.");
     }
 }
