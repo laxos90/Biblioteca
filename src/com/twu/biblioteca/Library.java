@@ -9,8 +9,8 @@ import java.util.ArrayList;
  * Created by m on 3/11/2016.
  */
 public class Library {
-    private ArrayList<Book> books;
-    private ArrayList<Movie> movies;
+    private ArrayList<Book> books = new ArrayList<>();
+    private ArrayList<Movie> movies = new ArrayList<>();
 
     public Library() {
         readBooks();
@@ -18,14 +18,12 @@ public class Library {
     }
 
     private void readBooks() {
-        books = new ArrayList<Book>();
-
         try {
             File myFile = new File("books.txt");
             FileReader fileReader = new FileReader(myFile);
             BufferedReader reader = new BufferedReader(fileReader);
 
-            String line = null;
+            String line;
             while ((line = reader.readLine()) != null) {
                 String[] information = line.split(",");
                 books.add(new Book(information[0].trim(), information[1].trim(), Integer.parseInt(information[2].trim())));
@@ -39,14 +37,12 @@ public class Library {
     }
 
     private void readMovies() {
-        movies = new ArrayList<Movie>();
-
         try {
             File myFile = new File("movies.txt");
             FileReader fileReader = new FileReader(myFile);
             BufferedReader reader = new BufferedReader(fileReader);
 
-            String line = null;
+            String line;
             while ((line = reader.readLine()) != null) {
                 String[] information = line.split(",");
                 movies.add(new Movie(information[0].trim(), Integer.parseInt(information[1].trim()),
