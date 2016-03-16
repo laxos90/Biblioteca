@@ -11,6 +11,7 @@ public class BibliotecaApp {
         String selectedMovie;
         boolean isSuccessfulCheckout;
         boolean isSuccessfulReturn;
+        User user = new User("Diego Vaca", "laxos90@gmail.com", "0995235323");
 
         Printer.printWelcomeMessage();
 
@@ -20,7 +21,7 @@ public class BibliotecaApp {
             try {
                 option = Reader.getUserOption();
             } catch (InputMismatchException ex) {
-                option = 7;
+                option = 8;
             }
 
             switch (option) {
@@ -76,11 +77,16 @@ public class BibliotecaApp {
                         Printer.notifyUserReturnWasUnsuccessful("movie");
                     }
                     break;
+                case 7:
+                    System.out.println(user);
+                    break;
                 default:
                     Printer.printInvalidOptionMessage();
                     break;
             }
         } while (option != 0);
-    }
 
+
+
+    }
 }

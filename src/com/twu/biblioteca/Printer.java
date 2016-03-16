@@ -18,6 +18,7 @@ public class Printer {
         System.out.println("4 - List available movies");
         System.out.println("5 - Checkout a movie");
         System.out.println("6 - Return a movie");
+        System.out.println("7 - Display user information");
         System.out.println("Enter 0 to quit!");
     }
 
