@@ -42,12 +42,12 @@ public class Printer {
         }
     }
 
-    public static void notifyUserReturnWasSuccessful(String element) {
-        System.out.println("Thank you for returning the " + element + ".");
-    }
-
-    public static void notifyUserReturnWasUnsuccessful(String element) {
-        System.out.println("That is not a valid " + element + " to return.");
+    public static void notifyReturnStatus(boolean isSuccessfulReturn, String element) {
+        if (isSuccessfulReturn) {
+            System.out.println("Thank you for returning the " + element + ".");
+        } else {
+            System.out.println("That is not a valid " + element + " to return.");
+        }
     }
 
     public static void printBooks(Library library) {

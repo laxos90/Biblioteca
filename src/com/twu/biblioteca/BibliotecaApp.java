@@ -40,12 +40,7 @@ public class BibliotecaApp {
                     Printer.askBookTitle("return");
                     bookTitle = Reader.getBookTitleFromUser();
                     isSuccessfulReturn = library.returnBook(bookTitle);
-
-                    if (isSuccessfulReturn) {
-                        Printer.notifyUserReturnWasSuccessful("book");
-                    } else {
-                        Printer.notifyUserReturnWasUnsuccessful("book");
-                    }
+                    Printer.notifyReturnStatus(isSuccessfulReturn, "book");
                     break;
                 case 4:
                     Printer.printMovies(library);
@@ -60,12 +55,7 @@ public class BibliotecaApp {
                     Printer.askMovieName("return");
                     String movieNameFromUser = Reader.getMovieNameFromUser();
                     isSuccessfulReturn = library.returnMovie(movieNameFromUser);
-
-                    if (isSuccessfulReturn) {
-                        Printer.notifyUserReturnWasSuccessful("movie");
-                    } else {
-                        Printer.notifyUserReturnWasUnsuccessful("movie");
-                    }
+                    Printer.notifyReturnStatus(isSuccessfulReturn, "movie");
                     break;
                 case 7:
                     System.out.println(user);
