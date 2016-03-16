@@ -45,6 +45,6 @@ public class Book extends LibraryItem {
 
     @Override
     public String toString() {
-        return String.format("%-27s %-19s %14d", title, author, publishedYear);
+        return String.format("%-27s %-19s %-14d", title, author, publishedYear);
     }
 }
