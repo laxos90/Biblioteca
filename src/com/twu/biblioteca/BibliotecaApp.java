@@ -31,7 +31,7 @@ public class BibliotecaApp {
                     Printer.printBooks(library);
                     break;
                 case 2:
-                    Printer.askBookTitle();
+                    Printer.askBookTitle("checkout");
                     bookTitle = Reader.getBookTitleFromUser();
                     isSuccessfulCheckout = library.checkoutBook(bookTitle);
 
@@ -42,7 +42,7 @@ public class BibliotecaApp {
                     }
                     break;
                 case 3:
-                    Printer.printTitleOfReturnedBook();
+                    Printer.askBookTitle("return");
                     bookTitle = Reader.getBookTitleFromUser();
                     isSuccessfulReturn = library.returnBook(bookTitle);
 
@@ -56,7 +56,7 @@ public class BibliotecaApp {
                     Printer.printMovies(library);
                     break;
                 case 5:
-                    Printer.askMovieName();
+                    Printer.askMovieName("checkout");
                     selectedMovie = Reader.getMovieNameFromUser();
                     isSuccessfulCheckout = library.checkoutMovie(selectedMovie);
 
@@ -67,7 +67,7 @@ public class BibliotecaApp {
                     }
                     break;
                 case 6:
-                    Printer.printNameOfReturnedMovie();
+                    Printer.askMovieName("return");
                     String movieNameFromUser = Reader.getMovieNameFromUser();
                     isSuccessfulReturn = library.returnMovie(movieNameFromUser);
 

@@ -26,12 +26,12 @@ public class Printer {
         System.out.println("Invalid Option! Please select a valid option:");
     }
 
-    public static void askBookTitle() {
-        System.out.println("Type the title of the book you want to checkout:");
+    public static void askBookTitle(String action) {
+        System.out.println("Type the title of the book you want to " + action + ":");
     }
 
-    public static void askMovieName() {
-        System.out.println("Type the name of the movie you want to checkout:");
+    public static void askMovieName(String action) {
+        System.out.println("Type the name of the movie you want to " + action + ":");
     }
 
     public static void notifySuccessfulCheckout(String element) {
@@ -48,14 +48,6 @@ public class Printer {
 
     public static void notifyUserReturnWasUnsuccessful(String element) {
         System.out.println("That is not a valid " + element + " to return.");
-    }
-
-    public static void printTitleOfReturnedBook() {
-        System.out.println("Enter the title of the book you want to return:");
-    }
-
-    public static void printNameOfReturnedMovie() {
-        System.out.println("Enter the name of the movie you want to return:");
     }
 
     public static void printBooks(Library library) {
