@@ -59,7 +59,9 @@ public class BibliotecaApp {
                     selectedMovie = Reader.getMovieNameFromUser();
                     isSuccessfulCheckout = checkoutMovie(library, selectedMovie);
 
-                    if (!isSuccessfulCheckout) {
+                    if (isSuccessfulCheckout) {
+                        Printer.notifySuccessfulCheckout("movie");
+                    } else {
                         Printer.notifyUnsuccessfulCheckout("movie");
                     }
                     break;
@@ -68,7 +70,9 @@ public class BibliotecaApp {
                     String movieNameFromUser = Reader.getMovieNameFromUser();
                     isSuccessfulReturn = returnMovie(library, movieNameFromUser);
 
-                    if (!isSuccessfulReturn) {
+                    if (isSuccessfulReturn) {
+                        Printer.notifyUserReturnWasSuccessful("movie");
+                    } else {
                         Printer.notifyUserReturnWasUnsuccessful("movie");
                     }
                     break;
@@ -79,28 +83,26 @@ public class BibliotecaApp {
         } while (option != 0);
     }
 
-    private static boolean returnMovie(Library library, String movieNameFromUser) {
-        boolean isSuccessfulReturn = false;
-        for (Movie movie : library.getMovies()) {
-            if (!movie.isAvailable() && movieNameFromUser.equals(movie.getName())) {
-                movie.setAvailable(true);
-                isSuccessfulReturn = true;
-                Printer.notifyUserReturnWasSuccessful("movie");
-            }
-        }
-        return isSuccessfulReturn;
-    }
-
     private static boolean checkoutMovie(Library library, String selectedMovie) {
         boolean isSuccessfulCheckout = false;
         for (Movie movie : library.getMovies()) {
             if (movie.isAvailable() && selectedMovie.equals(movie.getName())) {
                 movie.setAvailable(false);
                 isSuccessfulCheckout = true;
-                Printer.notifySuccessfulCheckout("movie");
             }
         }
         return isSuccessfulCheckout;
+    }
+
+    private static boolean returnMovie(Library library, String movieNameFromUser) {
+        boolean isSuccessfulReturn = false;
+        for (Movie movie : library.getMovies()) {
+            if (!movie.isAvailable() && movieNameFromUser.equals(movie.getName())) {
+                movie.setAvailable(true);
+                isSuccessfulReturn = true;
+            }
+        }
+        return isSuccessfulReturn;
     }
 
 }
