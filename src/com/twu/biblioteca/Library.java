@@ -1,5 +1,8 @@
 package com.twu.biblioteca;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 
 /**
@@ -10,16 +13,51 @@ public class Library {
     private ArrayList<Movie> movies;
 
     public Library() {
-        books = new ArrayList<Book>() {{
-            add(new Book("A Thousand Splendid Suns", "Khaled Hosseini", 2006));
-            add(new Book("Hunger Games", "Susane Collins", 2004));
-            add(new Book("Two Towers", "JR Tolkien", 1994));
-        }};
-        movies = new ArrayList<Movie>() {{
-            add(new Movie("Pulp Fiction", 1979, "Tarantino", "8.9"));
-            add(new Movie("The Godfather", 1975, "Coppola", "9.2"));
-            add(new Movie("The Departed", 2006, "Scorsese", "8.5"));
-        }};
+        readBooks();
+        readMovies();
+    }
+
+    private void readBooks() {
+        books = new ArrayList<Book>();
+
+        try {
+            File myFile = new File("books.txt");
+            FileReader fileReader = new FileReader(myFile);
+            BufferedReader reader = new BufferedReader(fileReader);
+
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                String[] information = line.split(",");
+                books.add(new Book(information[0].trim(), information[1].trim(), Integer.parseInt(information[2].trim())));
+            }
+
+            reader.close();
+        } catch (Exception ex) {
+            System.out.println("There was a problem reading data.");
+            System.exit(1);
+        }
+    }
+
+    private void readMovies() {
+        movies = new ArrayList<Movie>();
+
+        try {
+            File myFile = new File("movies.txt");
+            FileReader fileReader = new FileReader(myFile);
+            BufferedReader reader = new BufferedReader(fileReader);
+
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                String[] information = line.split(",");
+                movies.add(new Movie(information[0].trim(), Integer.parseInt(information[1].trim()),
+                        information[2].trim(), information[3].trim()));
+            }
+
+            reader.close();
+        } catch (Exception ex) {
+            System.out.println("There was a problem reading data.");
+            System.exit(1);
+        }
     }
 
     public ArrayList<Book> getBooks() { return books; }
