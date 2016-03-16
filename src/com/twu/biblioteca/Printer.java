@@ -34,12 +34,12 @@ public class Printer {
         System.out.println("Type the name of the movie you want to " + action + ":");
     }
 
-    public static void notifySuccessfulCheckout(String element) {
-        System.out.println("Thank you! Enjoy the " + element + ".");
-    }
-
-    public static void notifyUnsuccessfulCheckout(String element) {
-        System.out.println("That " + element + " is not available.");
+    public static void notifyCheckoutStatus(boolean isSuccessfulCheckout, String element) {
+        if (isSuccessfulCheckout) {
+            System.out.println("Thank you! Enjoy the " + element + ".");
+        } else {
+            System.out.println("That " + element + " is not available.");
+        }
     }
 
     public static void notifyUserReturnWasSuccessful(String element) {

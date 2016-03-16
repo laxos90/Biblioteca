@@ -34,12 +34,7 @@ public class BibliotecaApp {
                     Printer.askBookTitle("checkout");
                     bookTitle = Reader.getBookTitleFromUser();
                     isSuccessfulCheckout = library.checkoutBook(bookTitle);
-
-                    if (isSuccessfulCheckout) {
-                        Printer.notifySuccessfulCheckout("book");
-                    } else {
-                        Printer.notifyUnsuccessfulCheckout("book");
-                    }
+                    Printer.notifyCheckoutStatus(isSuccessfulCheckout, "book");
                     break;
                 case 3:
                     Printer.askBookTitle("return");
@@ -59,12 +54,7 @@ public class BibliotecaApp {
                     Printer.askMovieName("checkout");
                     selectedMovie = Reader.getMovieNameFromUser();
                     isSuccessfulCheckout = library.checkoutMovie(selectedMovie);
-
-                    if (isSuccessfulCheckout) {
-                        Printer.notifySuccessfulCheckout("movie");
-                    } else {
-                        Printer.notifyUnsuccessfulCheckout("movie");
-                    }
+                    Printer.notifyCheckoutStatus(isSuccessfulCheckout, "movie");
                     break;
                 case 6:
                     Printer.askMovieName("return");
