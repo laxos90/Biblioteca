@@ -57,34 +57,22 @@ public class BibliotecaApp {
                 case 5:
                     Printer.askMovieName();
                     selectedMovie = Reader.getMovieNameFromUser();
-                    isSuccessfulCheckout = false;
+                    isSuccessfulCheckout = library.checkoutMovie(selectedMovie);
 
-                    for (Movie movie : library.getMovies()) {
-                        if (movie.isAvailable() && selectedMovie.equals(movie.getName())) {
-                            movie.setAvailable(false);
-                            isSuccessfulCheckout = true;
-                            Printer.notifySuccessfulCheckout("movie");
-                        }
-                    }
-
-                    if (!isSuccessfulCheckout) {
+                    if (isSuccessfulCheckout) {
+                        Printer.notifySuccessfulCheckout("movie");
+                    } else {
                         Printer.notifyUnsuccessfulCheckout("movie");
                     }
                     break;
                 case 6:
                     Printer.printNameOfReturnedMovie();
                     String movieNameFromUser = Reader.getMovieNameFromUser();
-                    isSuccessfulReturn = false;
+                    isSuccessfulReturn = library.returnMovie(movieNameFromUser);
 
-                    for (Movie movie : library.getMovies()) {
-                        if (!movie.isAvailable() && movieNameFromUser.equals(movie.getName())) {
-                            movie.setAvailable(true);
-                            isSuccessfulReturn = true;
-                            Printer.notifyUserReturnWasSuccessful("movie");
-                        }
-                    }
-
-                    if (!isSuccessfulReturn) {
+                    if (isSuccessfulReturn) {
+                        Printer.notifyUserReturnWasSuccessful("movie");
+                    } else {
                         Printer.notifyUserReturnWasUnsuccessful("movie");
                     }
                     break;
@@ -94,5 +82,5 @@ public class BibliotecaApp {
             }
         } while (option != 0);
     }
-    
+
 }

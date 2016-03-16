@@ -51,4 +51,25 @@ public class Library {
         return isSuccessfulReturn;
     }
 
+    public boolean checkoutMovie(String movieName) {
+        boolean isSuccessfulCheckout = false;
+        for (Movie movie : movies) {
+            if (movie.isAvailable() && movieName.equals(movie.getName())) {
+                movie.setAvailable(false);
+                isSuccessfulCheckout = true;
+            }
+        }
+        return isSuccessfulCheckout;
+    }
+
+    public boolean returnMovie(String movieName) {
+        boolean isSuccessfulReturn = false;
+        for (Movie movie : movies) {
+            if (!movie.isAvailable() && movieName.equals(movie.getName())) {
+                movie.setAvailable(true);
+                isSuccessfulReturn = true;
+            }
+        }
+        return isSuccessfulReturn;
+    }
 }
