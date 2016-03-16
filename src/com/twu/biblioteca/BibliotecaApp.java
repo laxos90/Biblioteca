@@ -85,8 +85,5 @@ public class BibliotecaApp {
                     break;
             }
         } while (option != 0);
-
-
-
     }
 }
