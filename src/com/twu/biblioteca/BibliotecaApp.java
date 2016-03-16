@@ -5,12 +5,12 @@ import java.util.InputMismatchException;
 public class BibliotecaApp {
 
     public static void main(String[] args) {
-        Library library = new Library();
         int option;
         String bookTitle;
         String selectedMovie;
         boolean isSuccessfulCheckout;
         boolean isSuccessfulReturn;
+        Library library = new Library();
         User user = new User("Diego Vaca", "laxos90@gmail.com", "0995235323");
 
         Printer.printWelcomeMessage();
