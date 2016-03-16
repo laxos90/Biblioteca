@@ -51,10 +51,10 @@ public class Library {
         return isSuccessfulReturn;
     }
 
-    public boolean checkoutMovie(String selectedMovie) {
+    public boolean checkoutMovie(String movieName) {
         boolean isSuccessfulCheckout = false;
         for (Movie movie : movies) {
-            if (movie.isAvailable() && selectedMovie.equals(movie.getName())) {
+            if (movie.isAvailable() && movieName.equals(movie.getName())) {
                 movie.setAvailable(false);
                 isSuccessfulCheckout = true;
             }
@@ -62,10 +62,10 @@ public class Library {
         return isSuccessfulCheckout;
     }
 
-    public boolean returnMovie(String movieNameFromUser) {
+    public boolean returnMovie(String movieName) {
         boolean isSuccessfulReturn = false;
         for (Movie movie : movies) {
-            if (!movie.isAvailable() && movieNameFromUser.equals(movie.getName())) {
+            if (!movie.isAvailable() && movieName.equals(movie.getName())) {
                 movie.setAvailable(true);
                 isSuccessfulReturn = true;
             }
