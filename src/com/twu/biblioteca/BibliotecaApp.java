@@ -32,7 +32,7 @@ public class BibliotecaApp {
 
             try {
                 option = UserChoice.values()[Reader.getUserOption()];
-            } catch (InputMismatchException ex) {
+            } catch (InputMismatchException | ArrayIndexOutOfBoundsException ex) {
                 option = UserChoice.INVALID_OPTION;
             }
 
@@ -76,6 +76,6 @@ public class BibliotecaApp {
                     Printer.printInvalidOptionMessage();
                     break;
             }
-        } while (option != UserChoice.INVALID_OPTION);
+        } while (option != UserChoice.QUIT);
     }
 }
