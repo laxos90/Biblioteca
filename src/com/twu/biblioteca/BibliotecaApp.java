@@ -17,7 +17,7 @@ public class BibliotecaApp {
 
         System.out.print("Enter your library number: ");
         String libraryNumber = Reader.getLibraryNumberFromUser();
-        currentUser = getUserWithLibraryNumber(library, libraryNumber);
+        currentUser = library.getUserWithLibraryNumber(libraryNumber);
 
         System.out.print("Enter your password: ");
         String password = Reader.getPasswordFromUser();
@@ -77,14 +77,5 @@ public class BibliotecaApp {
                     break;
             }
         } while (option != 0);
-    }
-
-    private static User getUserWithLibraryNumber(Library library, String libraryNumber) {
-        for (User user: library.getUsers()) {
-            if (libraryNumber.equals(user.getLibraryNumber())) {
-                return user;
-            }
-        }
-        return null;
     }
 }

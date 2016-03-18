@@ -135,4 +135,13 @@ public class Library {
         }
         return isSuccessfulReturn;
     }
+
+    public User getUserWithLibraryNumber(String libraryNumber) {
+        for (User user: users) {
+            if (libraryNumber.equals(user.getLibraryNumber())) {
+                return user;
+            }
+        }
+        return null;
+    }
 }
