@@ -20,6 +20,14 @@ public class BibliotecaApp {
         System.out.print("Enter your password: ");
         String password = Reader.getPasswordFromUser();
 
+        User passwordValidation = new User("xxx-xxxx", "ambato2016");
+
+        if (!libraryNumber.equals(passwordValidation.getUserLibraryNumber()) ||
+                !password.equals(passwordValidation.getUserPassword())) {
+            System.out.println( "Invalid user credentials!");
+            System.exit(2);
+        }
+
         do {
             Printer.printMenuOptions();
 
