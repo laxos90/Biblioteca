@@ -5,7 +5,7 @@ import java.util.InputMismatchException;
 public class BibliotecaApp {
 
     public static void main(String[] args) {
-        int option;
+        UserChoice option;
         String bookTitle;
         String selectedMovie;
         User currentUser;
@@ -31,51 +31,51 @@ public class BibliotecaApp {
             Printer.printMenuOptions();
 
             try {
-                option = Reader.getUserOption();
+                option = UserChoice.values()[Reader.getUserOption()];
             } catch (InputMismatchException ex) {
-                option = 8;
+                option = UserChoice.INVALID_OPTION;
             }
 
             switch (option) {
-                case 0:
+                case QUIT:
                     break;
-                case 1:
+                case LIST_BOOKS:
                     Printer.printBooks(library);
                     break;
-                case 2:
+                case CHECKOUT_BOOK:
                     Printer.askBookTitle("checkout");
                     bookTitle = Reader.getBookTitleFromUser();
                     isSuccessfulCheckout = library.checkoutBook(bookTitle);
                     Printer.notifyCheckoutStatus(isSuccessfulCheckout, "book");
                     break;
-                case 3:
+                case RETURN_BOOK:
                     Printer.askBookTitle("return");
                     bookTitle = Reader.getBookTitleFromUser();
                     isSuccessfulReturn = library.returnBook(bookTitle);
                     Printer.notifyReturnStatus(isSuccessfulReturn, "book");
                     break;
-                case 4:
+                case LIST_MOVIES:
                     Printer.printMovies(library);
                     break;
-                case 5:
+                case CHECKOUT_MOVIE:
                     Printer.askMovieName("checkout");
                     selectedMovie = Reader.getMovieNameFromUser();
                     isSuccessfulCheckout = library.checkoutMovie(selectedMovie);
                     Printer.notifyCheckoutStatus(isSuccessfulCheckout, "movie");
                     break;
-                case 6:
+                case RETURN_MOVIE:
                     Printer.askMovieName("return");
                     String movieNameFromUser = Reader.getMovieNameFromUser();
                     isSuccessfulReturn = library.returnMovie(movieNameFromUser);
                     Printer.notifyReturnStatus(isSuccessfulReturn, "movie");
                     break;
-                case 7:
+                case USER_INFORMATION:
                     System.out.println(currentUser);
                     break;
                 default:
                     Printer.printInvalidOptionMessage();
                     break;
             }
-        } while (option != 0);
+        } while (option != UserChoice.INVALID_OPTION);
     }
 }
