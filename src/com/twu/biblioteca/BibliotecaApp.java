@@ -15,6 +15,11 @@ public class BibliotecaApp {
 
         Printer.printWelcomeMessage();
 
+        System.out.print("Enter your library number: ");
+        String libraryNumber = Reader.getLibraryNumberFromUser();
+        System.out.print("Enter your password: ");
+        String password = Reader.getPasswordFromUser();
+
         do {
             Printer.printMenuOptions();
 

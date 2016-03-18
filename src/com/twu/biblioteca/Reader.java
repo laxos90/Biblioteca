@@ -20,4 +20,14 @@ public class Reader {
         Scanner reader = new Scanner(System.in);
         return reader.nextLine();
     }
+
+    public static String getLibraryNumberFromUser() {
+        Scanner reader = new Scanner(System.in);
+        return reader.nextLine();
+    }
+
+    public static String getPasswordFromUser() {
+        Scanner reader = new Scanner(System.in);
+        return reader.nextLine();
+    }
 }
