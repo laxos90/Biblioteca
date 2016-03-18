@@ -7,31 +7,31 @@ public class User {
     private String name;
     private String emailAddress;
     private String phoneNumber;
-    private String userLibraryNumber;
-    private String userPassword;
+    private String libraryNumber;
+    private String password;
 
     public User(String name, String emailAddress, String phoneNumber, String userLibraryNumber, String userPassword) {
         this.name = name;
         this.emailAddress = emailAddress;
         this.phoneNumber = phoneNumber;
-        this.userLibraryNumber = userLibraryNumber;
-        this.userPassword = userPassword;
+        this.libraryNumber = userLibraryNumber;
+        this.password = userPassword;
     }
 
-    public String getUserLibraryNumber() {
-        return userLibraryNumber;
+    public String getLibraryNumber() {
+        return libraryNumber;
     }
 
-    public String getUserPassword() {
-        return userPassword;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUserLibraryNumber(String userLibraryNumber) {
-        this.userLibraryNumber = userLibraryNumber;
+    public void setLibraryNumber(String libraryNumber) {
+        this.libraryNumber = libraryNumber;
     }
 
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getName() {

@@ -1,4 +1,4 @@
-Diego Vaca,laxos90@gmail.com, 0995235323, xxx-xxxx, ambato2016
+Diego Vaca,laxos90@gmail.com, 0995235323, 123-6789, ambato2016
 Miguel Vargas, miguel@gmail.com, 0995123456, 123-4567, quito2016
 Nancy Abarca, sikae@gmail.com, 0995235423, 098-7654, loja2016
 David Ochoa, david@gmail,com 0995234567, 345-6789, guayaquil2016
