@@ -5,12 +5,12 @@ import java.util.InputMismatchException;
 public class BibliotecaApp {
 
     public static void main(String[] args) {
-        Library library = new Library();
         int option;
         String bookTitle;
         String selectedMovie;
         boolean isSuccessfulCheckout;
         boolean isSuccessfulReturn;
+        Library library = new Library();
         User user = new User("Diego Vaca", "laxos90@gmail.com", "0995235323");
 
         Printer.printWelcomeMessage();
@@ -36,51 +36,31 @@ public class BibliotecaApp {
                     Printer.printBooks(library);
                     break;
                 case 2:
-                    Printer.askBookTitle();
+                    Printer.askBookTitle("checkout");
                     bookTitle = Reader.getBookTitleFromUser();
                     isSuccessfulCheckout = library.checkoutBook(bookTitle);
-
-                    if (isSuccessfulCheckout) {
-                        Printer.notifySuccessfulCheckout("book");
-                    } else {
-                        Printer.notifyUnsuccessfulCheckout("book");
-                    }
+                    Printer.notifyCheckoutStatus(isSuccessfulCheckout, "book");
                     break;
                 case 3:
-                    Printer.printTitleOfReturnedBook();
+                    Printer.askBookTitle("return");
                     bookTitle = Reader.getBookTitleFromUser();
                     isSuccessfulReturn = library.returnBook(bookTitle);
-
-                    if (isSuccessfulReturn) {
-                        Printer.notifyUserReturnWasSuccessful("book");
-                    } else {
-                        Printer.notifyUserReturnWasUnsuccessful("book");
-                    }
+                    Printer.notifyReturnStatus(isSuccessfulReturn, "book");
                     break;
                 case 4:
                     Printer.printMovies(library);
                     break;
                 case 5:
-                    Printer.askMovieName();
+                    Printer.askMovieName("checkout");
                     selectedMovie = Reader.getMovieNameFromUser();
                     isSuccessfulCheckout = library.checkoutMovie(selectedMovie);
-
-                    if (isSuccessfulCheckout) {
-                        Printer.notifySuccessfulCheckout("movie");
-                    } else {
-                        Printer.notifyUnsuccessfulCheckout("movie");
-                    }
+                    Printer.notifyCheckoutStatus(isSuccessfulCheckout, "movie");
                     break;
                 case 6:
-                    Printer.printNameOfReturnedMovie();
+                    Printer.askMovieName("return");
                     String movieNameFromUser = Reader.getMovieNameFromUser();
                     isSuccessfulReturn = library.returnMovie(movieNameFromUser);
-
-                    if (isSuccessfulReturn) {
-                        Printer.notifyUserReturnWasSuccessful("movie");
-                    } else {
-                        Printer.notifyUserReturnWasUnsuccessful("movie");
-                    }
+                    Printer.notifyReturnStatus(isSuccessfulReturn, "movie");
                     break;
                 case 7:
                     System.out.println(user);
@@ -90,8 +70,5 @@ public class BibliotecaApp {
                     break;
             }
         } while (option != 0);
-
-
-
     }
 }
