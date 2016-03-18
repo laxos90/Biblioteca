@@ -7,11 +7,31 @@ public class User {
     private String name;
     private String emailAddress;
     private String phoneNumber;
+    private String libraryNumber;
+    private String password;
 
-    public User(String name, String emailAdress, String phoneNumber) {
+    public User(String name, String emailAddress, String phoneNumber, String userLibraryNumber, String userPassword) {
         this.name = name;
-        this.emailAddress = emailAdress;
+        this.emailAddress = emailAddress;
         this.phoneNumber = phoneNumber;
+        this.libraryNumber = userLibraryNumber;
+        this.password = userPassword;
+    }
+
+    public String getLibraryNumber() {
+        return libraryNumber;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setLibraryNumber(String libraryNumber) {
+        this.libraryNumber = libraryNumber;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getName() {
@@ -45,5 +65,6 @@ public class User {
                 "Email:\t" + emailAddress + "\n" +
                 "Phone:\t" + phoneNumber + "\n";
     }
+
 }
 

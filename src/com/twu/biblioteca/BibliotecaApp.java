@@ -8,12 +8,24 @@ public class BibliotecaApp {
         int option;
         String bookTitle;
         String selectedMovie;
+        User currentUser;
         boolean isSuccessfulCheckout;
         boolean isSuccessfulReturn;
         Library library = new Library();
-        User user = new User("Diego Vaca", "laxos90@gmail.com", "0995235323");
 
         Printer.printWelcomeMessage();
+
+        System.out.print("Enter your library number: ");
+        String libraryNumber = Reader.getLibraryNumberFromUser();
+        currentUser = library.getUserWithLibraryNumber(libraryNumber);
+
+        System.out.print("Enter your password: ");
+        String password = Reader.getPasswordFromUser();
+
+        if (currentUser == null || !password.equals(currentUser.getPassword())) {
+            System.out.println( "Invalid user credentials!");
+            System.exit(2);
+        }
 
         do {
             Printer.printMenuOptions();
@@ -58,7 +70,7 @@ public class BibliotecaApp {
                     Printer.notifyReturnStatus(isSuccessfulReturn, "movie");
                     break;
                 case 7:
-                    System.out.println(user);
+                    System.out.println(currentUser);
                     break;
                 default:
                     Printer.printInvalidOptionMessage();
