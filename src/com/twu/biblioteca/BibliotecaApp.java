@@ -8,7 +8,7 @@ public class BibliotecaApp {
         int option;
         String bookTitle;
         String selectedMovie;
-        User currentUser = null;
+        User currentUser;
         boolean isSuccessfulCheckout;
         boolean isSuccessfulReturn;
         Library library = new Library();
@@ -17,13 +17,7 @@ public class BibliotecaApp {
 
         System.out.print("Enter your library number: ");
         String libraryNumber = Reader.getLibraryNumberFromUser();
-
-        for (User user: library.getUsers()) {
-            if (libraryNumber.equals(user.getLibraryNumber())) {
-                currentUser = user;
-                break;
-            }
-        }
+        currentUser = getUserWithLibraryNumber(library, libraryNumber);
 
         System.out.print("Enter your password: ");
         String password = Reader.getPasswordFromUser();
@@ -83,5 +77,14 @@ public class BibliotecaApp {
                     break;
             }
         } while (option != 0);
+    }
+
+    private static User getUserWithLibraryNumber(Library library, String libraryNumber) {
+        for (User user: library.getUsers()) {
+            if (libraryNumber.equals(user.getLibraryNumber())) {
+                return user;
+            }
+        }
+        return null;
     }
 }
