@@ -10,13 +10,10 @@ public class User {
     private String userLibraryNumber;
     private String userPassword;
 
-    public User(String name, String emailAdress, String phoneNumber) {
+    public User(String name, String emailAddress, String phoneNumber, String userLibraryNumber, String userPassword) {
         this.name = name;
-        this.emailAddress = emailAdress;
+        this.emailAddress = emailAddress;
         this.phoneNumber = phoneNumber;
-    }
-
-    public User(String userLibraryNumber, String userPassword) {
         this.userLibraryNumber = userLibraryNumber;
         this.userPassword = userPassword;
     }
@@ -68,5 +65,6 @@ public class User {
                 "Email:\t" + emailAddress + "\n" +
                 "Phone:\t" + phoneNumber + "\n";
     }
+
 }
 

@@ -11,12 +11,19 @@ import java.util.ArrayList;
 public class Library {
     private static final String DATA_OF_BOOKS = "books.txt";
     private static final String DATA_OF_MOVIES = "movies.txt";
+    private static final String DATA_OF_USERS = "users.txt";
     private ArrayList<Book> books = new ArrayList<>();
     private ArrayList<Movie> movies = new ArrayList<>();
+    private ArrayList<User> users = new ArrayList<>();
 
     public Library() {
         readBooks();
         readMovies();
+        readUsers();
+    }
+
+    public ArrayList<User> getUsers() {
+        return users;
     }
 
     private void readBooks() {
@@ -49,6 +56,26 @@ public class Library {
                 String[] information = line.split(",");
                 movies.add(new Movie(information[0].trim(), Integer.parseInt(information[1].trim()),
                         information[2].trim(), information[3].trim()));
+            }
+
+            reader.close();
+        } catch (Exception ex) {
+            System.out.println("There was a problem reading data.");
+            System.exit(1);
+        }
+    }
+
+    private void readUsers() {
+        try {
+            File myFile = new File(DATA_OF_USERS);
+            FileReader fileReader = new FileReader(myFile);
+            BufferedReader reader = new BufferedReader(fileReader);
+
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] information = line.split(",");
+                users.add(new User(information[0].trim(), information[1].trim(), information[2].trim(),
+                                information[3].trim(), information[4].trim()));
             }
 
             reader.close();

@@ -11,7 +11,6 @@ public class BibliotecaApp {
         boolean isSuccessfulCheckout;
         boolean isSuccessfulReturn;
         Library library = new Library();
-        User user = new User("Diego Vaca", "laxos90@gmail.com", "0995235323");
 
         Printer.printWelcomeMessage();
 
