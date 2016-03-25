@@ -32,12 +32,7 @@ public class BibliotecaApp {
 
         do {
             Printer.printMenuOptions();
-
-            try {
-                option = UserChoice.values()[Reader.getUserOption()];
-            } catch (InputMismatchException | ArrayIndexOutOfBoundsException ex) {
-                option = UserChoice.INVALID_OPTION;
-            }
+            option = Reader.getUserOption();
 
             switch (option) {
                 case QUIT:

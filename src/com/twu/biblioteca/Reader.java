@@ -1,14 +1,20 @@
 package com.twu.biblioteca;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
  * Created by user on 3/14/16.
  */
 public class Reader {
-    public static int getUserOption() {
+    public static UserChoice getUserOption() {
         Scanner reader = new Scanner(System.in);
-        return reader.nextInt();
+
+        try {
+            return UserChoice.values()[reader.nextInt()];
+        } catch (InputMismatchException | ArrayIndexOutOfBoundsException ex) {
+            return UserChoice.INVALID_OPTION;
+        }
     }
 
     public static String getBookTitleFromUser() {
