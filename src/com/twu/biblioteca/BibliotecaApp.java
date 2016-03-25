@@ -1,5 +1,8 @@
 package com.twu.biblioteca;
 
+import com.twu.model.Library;
+import com.twu.model.User;
+
 import java.util.InputMismatchException;
 
 public class BibliotecaApp {
@@ -22,7 +25,7 @@ public class BibliotecaApp {
         System.out.print("Enter your password: ");
         String password = Reader.getPasswordFromUser();
 
-        if (currentUser == null || !password.equals(currentUser.getPassword())) {
+        if (currentUser == null || !isValidUserPassword(currentUser, password)) {
             System.out.println( "Invalid user credentials!");
             System.exit(2);
         }
@@ -77,5 +80,9 @@ public class BibliotecaApp {
                     break;
             }
         } while (option != UserChoice.QUIT);
+    }
+
+    private static boolean isValidUserPassword(User currentUser, String password) {
+        return password.equals(currentUser.getPassword());
     }
 }

@@ -1,4 +1,4 @@
-package com.twu.biblioteca;
+package com.twu.model;
 
 /**
  * Created by m on 3/10/2016.

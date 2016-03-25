@@ -1,5 +1,8 @@
 package com.twu.biblioteca;
 
+import com.twu.model.Library;
+import com.twu.model.LibraryItem;
+
 import java.util.ArrayList;
 
 /**
