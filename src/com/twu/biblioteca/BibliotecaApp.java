@@ -3,8 +3,6 @@ package com.twu.biblioteca;
 import com.twu.model.Library;
 import com.twu.model.User;
 
-import java.util.InputMismatchException;
-
 public class BibliotecaApp {
 
     public static void main(String[] args) {
@@ -32,7 +30,7 @@ public class BibliotecaApp {
 
         do {
             Printer.printMenuOptions();
-            option = Reader.getUserOption();
+            option = Reader.getUserChoice();
 
             switch (option) {
                 case QUIT:

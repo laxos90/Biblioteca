@@ -7,7 +7,7 @@ import java.util.Scanner;
  * Created by user on 3/14/16.
  */
 public class Reader {
-    public static UserChoice getUserOption() {
+    public static UserChoice getUserChoice() {
         Scanner reader = new Scanner(System.in);
 
         try {
