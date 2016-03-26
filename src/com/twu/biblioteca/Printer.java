@@ -9,11 +9,11 @@ import java.util.ArrayList;
  * Created by user on 3/14/16.
  */
 public class Printer {
-    public static void printWelcomeMessage() {
+    static void printWelcomeMessage() {
         System.out.println("Welcome to the Bangalore Public Library");
     }
 
-    public static void printMenuOptions() {
+    static void printMenuOptions() {
         System.out.println("Choose an option");
         System.out.println("1 - List available books");
         System.out.println("2 - Checkout a book");
@@ -25,19 +25,19 @@ public class Printer {
         System.out.println("Enter 0 to quit!");
     }
 
-    public static void printInvalidOptionMessage() {
+    static void printInvalidOptionMessage() {
         System.out.println("Invalid Option! Please select a valid option:");
     }
 
-    public static void askBookTitle(String action) {
+    static void askBookTitle(String action) {
         System.out.println("Type the title of the book you want to " + action + ":");
     }
 
-    public static void askMovieName(String action) {
+    static void askMovieName(String action) {
         System.out.println("Type the name of the movie you want to " + action + ":");
     }
 
-    public static void notifyCheckoutStatus(boolean isSuccessfulCheckout, String element) {
+    static void notifyCheckoutStatus(boolean isSuccessfulCheckout, String element) {
         if (isSuccessfulCheckout) {
             System.out.println("Thank you! Enjoy the " + element + ".");
         } else {
@@ -45,7 +45,7 @@ public class Printer {
         }
     }
 
-    public static void notifyReturnStatus(boolean isSuccessfulReturn, String element) {
+    static void notifyReturnStatus(boolean isSuccessfulReturn, String element) {
         if (isSuccessfulReturn) {
             System.out.println("Thank you for returning the " + element + ".");
         } else {
@@ -53,12 +53,12 @@ public class Printer {
         }
     }
 
-    public static void printBooks(Library library) {
+    static void printBooks(Library library) {
         System.out.println("Title\t\t\t\t\t\tAuthor\t\t\t\tPublished Year");
         printLibraryItems(library.getBooks());
     }
 
-    public static void printMovies(Library library) {
+    static void printMovies(Library library) {
         System.out.println("Name\t\t\t\t\t\tYear\t\t\tDirector\t\t\t\tRating");
         printLibraryItems(library.getMovies());
     }
