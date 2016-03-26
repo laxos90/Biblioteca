@@ -1,7 +1,10 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.app;
 
-import com.twu.model.Library;
-import com.twu.model.User;
+import com.twu.biblioteca.model.Library;
+import com.twu.biblioteca.model.User;
+import com.twu.biblioteca.util.Printer;
+import com.twu.biblioteca.util.Reader;
+import com.twu.biblioteca.util.UserChoice;
 
 public class BibliotecaApp {
 
