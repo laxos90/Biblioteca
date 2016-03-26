@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /**
  * Created by user on 3/14/16.
  */
-public class Printer {
+class Printer {
     static void printWelcomeMessage() {
         System.out.println("Welcome to the Bangalore Public Library");
     }
