@@ -19,11 +19,11 @@ public class BibliotecaApp {
 
         Printer.printWelcomeMessage();
 
-        System.out.print("Enter your library number: ");
+        Printer.askLibraryNumber();
         String libraryNumber = Reader.getLibraryNumberFromUser();
         currentUser = library.getUserWithLibraryNumber(libraryNumber);
 
-        System.out.print("Enter your password: ");
+        Printer.askPassword();
         String password = Reader.getPasswordFromUser();
 
         if (currentUser == null || !isValidUserPassword(currentUser, password)) {

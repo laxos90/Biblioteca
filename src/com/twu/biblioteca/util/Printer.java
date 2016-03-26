@@ -13,6 +13,14 @@ public class Printer {
         System.out.println("Welcome to the Bangalore Public Library");
     }
 
+    public static void askLibraryNumber() {
+        System.out.print("Enter your library number: ");
+    }
+
+    public static void askPassword() {
+        System.out.print("Enter your password: ");
+    }
+
     public static void printMenuOptions() {
         System.out.println("Choose an option");
         System.out.println("1 - List available books");
