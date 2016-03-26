@@ -10,15 +10,10 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         UserChoice option;
-        String bookTitle;
-        String selectedMovie;
         User currentUser;
-        boolean isSuccessfulCheckout;
-        boolean isSuccessfulReturn;
         Library library = new Library();
 
         Printer.printWelcomeMessage();
-
         Printer.askLibraryNumber();
         String libraryNumber = Reader.getLibraryNumberFromUser();
         currentUser = library.getUserWithLibraryNumber(libraryNumber);
@@ -32,6 +27,9 @@ public class BibliotecaApp {
         }
 
         do {
+            String bookTitle, movieName;
+            boolean isSuccessfulCheckout, isSuccessfulReturn;
+
             Printer.printMenuOptions();
             option = Reader.getUserChoice();
 
@@ -58,8 +56,8 @@ public class BibliotecaApp {
                     break;
                 case CHECKOUT_MOVIE:
                     Printer.askMovieName("checkout");
-                    selectedMovie = Reader.getMovieNameFromUser();
-                    isSuccessfulCheckout = library.checkoutMovie(selectedMovie);
+                    movieName = Reader.getMovieNameFromUser();
+                    isSuccessfulCheckout = library.checkoutMovie(movieName);
                     Printer.notifyCheckoutStatus(isSuccessfulCheckout, "movie");
                     break;
                 case RETURN_MOVIE:
