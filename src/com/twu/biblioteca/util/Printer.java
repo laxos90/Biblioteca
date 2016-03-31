@@ -45,19 +45,19 @@ public class Printer {
         System.out.println("Type the name of the movie you want to " + action + ":");
     }
 
-    public static void notifyCheckoutStatus(boolean isSuccessfulCheckout, String element) {
+    public static void notifyCheckoutStatus(boolean isSuccessfulCheckout, LibraryItemName libraryItem) {
         if (isSuccessfulCheckout) {
-            System.out.println("Thank you! Enjoy the " + element + ".");
+            System.out.println("Thank you! Enjoy the " + libraryItem + ".");
         } else {
-            System.out.println("That " + element + " is not available.");
+            System.out.println("That " + libraryItem + " is not available.");
         }
     }
 
-    public static void notifyReturnStatus(boolean isSuccessfulReturn, String element) {
+    public static void notifyReturnStatus(boolean isSuccessfulReturn, LibraryItemName libraryItem) {
         if (isSuccessfulReturn) {
-            System.out.println("Thank you for returning the " + element + ".");
+            System.out.println("Thank you for returning the " + libraryItem + ".");
         } else {
-            System.out.println("That is not a valid " + element + " to return.");
+            System.out.println("That is not a valid " + libraryItem + " to return.");
         }
     }
 

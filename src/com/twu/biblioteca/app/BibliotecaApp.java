@@ -6,6 +6,9 @@ import com.twu.biblioteca.util.Printer;
 import com.twu.biblioteca.util.Reader;
 import com.twu.biblioteca.util.UserChoice;
 
+import static com.twu.biblioteca.util.LibraryItemName.BOOK;
+import static com.twu.biblioteca.util.LibraryItemName.MOVIE;
+
 public class BibliotecaApp {
 
     public static void main(String[] args) {
@@ -43,13 +46,13 @@ public class BibliotecaApp {
                     Printer.askBookTitle("checkout");
                     bookTitle = Reader.getBookTitleFromUser();
                     isSuccessfulCheckout = library.checkoutBook(bookTitle);
-                    Printer.notifyCheckoutStatus(isSuccessfulCheckout, "book");
+                    Printer.notifyCheckoutStatus(isSuccessfulCheckout, BOOK);
                     break;
                 case RETURN_BOOK:
                     Printer.askBookTitle("return");
                     bookTitle = Reader.getBookTitleFromUser();
                     isSuccessfulReturn = library.returnBook(bookTitle);
-                    Printer.notifyReturnStatus(isSuccessfulReturn, "book");
+                    Printer.notifyReturnStatus(isSuccessfulReturn, BOOK);
                     break;
                 case LIST_MOVIES:
                     Printer.printMovies(library);
@@ -58,13 +61,13 @@ public class BibliotecaApp {
                     Printer.askMovieName("checkout");
                     movieName = Reader.getMovieNameFromUser();
                     isSuccessfulCheckout = library.checkoutMovie(movieName);
-                    Printer.notifyCheckoutStatus(isSuccessfulCheckout, "movie");
+                    Printer.notifyCheckoutStatus(isSuccessfulCheckout, MOVIE);
                     break;
                 case RETURN_MOVIE:
                     Printer.askMovieName("return");
                     String movieNameFromUser = Reader.getMovieNameFromUser();
                     isSuccessfulReturn = library.returnMovie(movieNameFromUser);
-                    Printer.notifyReturnStatus(isSuccessfulReturn, "movie");
+                    Printer.notifyReturnStatus(isSuccessfulReturn, MOVIE);
                     break;
                 case USER_INFORMATION:
                     System.out.println(currentUser);
