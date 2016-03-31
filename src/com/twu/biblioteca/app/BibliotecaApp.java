@@ -4,10 +4,10 @@ import com.twu.biblioteca.model.Library;
 import com.twu.biblioteca.model.User;
 import com.twu.biblioteca.util.Printer;
 import com.twu.biblioteca.util.Reader;
-import com.twu.biblioteca.util.UserChoice;
+import com.twu.biblioteca.enums.UserChoice;
 
-import static com.twu.biblioteca.util.LibraryItemName.*;
-import static com.twu.biblioteca.util.UserLibraryAction.*;
+import static com.twu.biblioteca.enums.LibraryItemName.*;
+import static com.twu.biblioteca.enums.UserLibraryAction.*;
 
 public class BibliotecaApp {
 

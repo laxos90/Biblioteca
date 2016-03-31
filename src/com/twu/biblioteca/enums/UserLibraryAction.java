@@ -1,4 +1,4 @@
-package com.twu.biblioteca.util;
+package com.twu.biblioteca.enums;
 
 /**
  * Created by m on 3/31/2016.

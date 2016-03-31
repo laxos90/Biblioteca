@@ -1,5 +1,7 @@
 package com.twu.biblioteca.util;
 
+import com.twu.biblioteca.enums.UserChoice;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
