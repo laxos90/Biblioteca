@@ -6,8 +6,8 @@ import com.twu.biblioteca.util.Printer;
 import com.twu.biblioteca.util.Reader;
 import com.twu.biblioteca.util.UserChoice;
 
-import static com.twu.biblioteca.util.LibraryItemName.BOOK;
-import static com.twu.biblioteca.util.LibraryItemName.MOVIE;
+import static com.twu.biblioteca.util.LibraryItemName.*;
+import static com.twu.biblioteca.util.UserLibraryAction.*;
 
 public class BibliotecaApp {
 
@@ -43,13 +43,13 @@ public class BibliotecaApp {
                     Printer.printBooks(library);
                     break;
                 case CHECKOUT_BOOK:
-                    Printer.askBookTitle("checkout");
+                    Printer.askBookTitle(CHECKOUT);
                     bookTitle = Reader.getBookTitleFromUser();
                     isSuccessfulCheckout = library.checkoutBook(bookTitle);
                     Printer.notifyCheckoutStatus(isSuccessfulCheckout, BOOK);
                     break;
                 case RETURN_BOOK:
-                    Printer.askBookTitle("return");
+                    Printer.askBookTitle(RETURN);
                     bookTitle = Reader.getBookTitleFromUser();
                     isSuccessfulReturn = library.returnBook(bookTitle);
                     Printer.notifyReturnStatus(isSuccessfulReturn, BOOK);
@@ -58,13 +58,13 @@ public class BibliotecaApp {
                     Printer.printMovies(library);
                     break;
                 case CHECKOUT_MOVIE:
-                    Printer.askMovieName("checkout");
+                    Printer.askMovieName(CHECKOUT);
                     movieName = Reader.getMovieNameFromUser();
                     isSuccessfulCheckout = library.checkoutMovie(movieName);
                     Printer.notifyCheckoutStatus(isSuccessfulCheckout, MOVIE);
                     break;
                 case RETURN_MOVIE:
-                    Printer.askMovieName("return");
+                    Printer.askMovieName(RETURN);
                     String movieNameFromUser = Reader.getMovieNameFromUser();
                     isSuccessfulReturn = library.returnMovie(movieNameFromUser);
                     Printer.notifyReturnStatus(isSuccessfulReturn, MOVIE);

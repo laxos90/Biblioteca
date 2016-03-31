@@ -37,11 +37,11 @@ public class Printer {
         System.out.println("Invalid Option! Please select a valid option:");
     }
 
-    public static void askBookTitle(String action) {
+    public static void askBookTitle(UserLibraryAction action) {
         System.out.println("Type the title of the book you want to " + action + ":");
     }
 
-    public static void askMovieName(String action) {
+    public static void askMovieName(UserLibraryAction action) {
         System.out.println("Type the name of the movie you want to " + action + ":");
     }
 
